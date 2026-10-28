@@ -258,8 +258,90 @@ int whileloops(){
 
 }
 
+int forloops(){
+    for (int i =0; i<5; i++){
+        //statement 1 is executed one time before execution of code block
+        //statement 2 defines condition for executing code block
+        //statement 3 executed after code block executed
+        cout << i << "\n";
+    }
+    int myNumbers[5] = {10, 20, 30, 40, 50};
+    // Loop through integers
+    // for each loop
+    for (int num : myNumbers) {
+        cout << num << "\n";
+    }
+    return 0;
+}
+
+int arrays(){
+    string cars[4]={"Volvo","BMW","Ford","Mazda"};
+    //declare variabletype, size, and contents
+    cars[0]="honda";
+    //overwrites previous
+    cout << cars[0];
+    int nums[]={1,2,3,4,5};
+    //empty set means c++ will estinate size of array
+    string milk[2];
+    milk[0]="soy";
+    milk[1]="coconut";
+    milk[2]="whole";
+    //possible to declare array elements after declaring array
+    cout<<sizeof(milk);
+    //gives result in bytes
+    //divide by first element when common to get number of elements
+    //multidimensional arrays exist
+    return 0;
+}
+int structs(){
+    //structs let you group multiple related variables into one place
+    struct //struct declaration
+    {
+        int mynum; //member
+        string mystring;
+        double mydouble;
+    } mysturct; //struct variable name
+    mysturct.mynum=1;
+    mysturct.mystring="Hola";
+    //assign values with .
+    struct idol {
+        string name;
+        int age;
+    };
+    //create type of struct for all the data
+    idol Yunjin;
+    Yunjin.name="Huh Yunjin";
+    Yunjin.age=25;
+    idol Eunchae;
+    Eunchae.name="Hong Eunchae";
+    Eunchae.name=20;
+    
+}
+int enums(){
+    enum Level {
+        Low,//0
+        medium,//1
+        high//2
+    };
+    //special type that represents group of constants
+    enum Level myvar = medium;
+    //can change what enum represents
+    enum Level {
+        Low=25,
+        medium=50,
+        high=75,
+    };
+    //ref variable is an alias for existing var
+    string food ="pizza";
+    string &meal=food;
+    //both equivalent to "pizza"
+    //& can also be used to find location in memory
+    cout << &food;
+}
+
+
 int main() {
-    whileloops();
+    enums();
     return 0;
 }
 
