@@ -315,7 +315,7 @@ int structs(){
     idol Eunchae;
     Eunchae.name="Hong Eunchae";
     Eunchae.name=20;
-    
+    return 0;
 }
 int enums(){
     enum Level {
@@ -326,22 +326,79 @@ int enums(){
     //special type that represents group of constants
     enum Level myvar = medium;
     //can change what enum represents
-    enum Level {
-        Low=25,
-        medium=50,
-        high=75,
-    };
+    return 0;
+}
+int pointers(){
     //ref variable is an alias for existing var
     string food ="pizza";
     string &meal=food;
     //both equivalent to "pizza"
     //& can also be used to find location in memory
     cout << &food;
+    string* ptr = &food;
+    //pointer variable, stores adress of food
+    cout << ptr << "\n";
+    //reference variable with memory adreess
+    cout << *ptr << "\n";
+    //Dereference output value of food with the pointer
+    return 0;
 }
+int memmgmt(){
+    int num=10;
+    cout<<sizeof(num);
+    //sizeof gets bytes of var
+    int* ptr = new int; //new variable lets you manage memory yourself
+    //new makes memory space for one int
+    //ptr stores adress of that space
+    *ptr = 35;
+    //ptr stores number 35
+    cout << *ptr;
+    delete ptr;
+    //delete removes the ptr and removes the memory needed
+    //forgetting to delete is known as memory leak
+    int numGuests;
+    cout << "How many guests? ";
+    cin >> numGuests;
+
+    // Check for invalid input
+    if (numGuests <= 0) {
+        cout << "Number of guests must be at least 1.\n";
+        return 0;
+    }
+
+    // Create memory space for x guests (an array of strings)
+    string* guests = new string[numGuests];
+
+    // Ignore the leftover newline character after reading numGuests
+    cin.ignore();
+
+    // Enter guest names
+    for (int i = 0; i < numGuests; i++) {
+        cout << "Enter name for guest " << (i + 1) << ": ";
+        getline(cin, guests[i]); // Read the full name (including spaces)
+    }
+
+    // Show all guests
+    cout << "\nGuests checked in:\n";
+    for (int i = 0; i < numGuests; i++) {
+        cout << guests[i] << "\n";
+    }
+
+    delete[] guests; // Clean up memory
+    //memory mgmt when you need to know how much memory you will need in advance, 
+    //create memory whil program is running
+    //you need to store large or flexible amounts of data
+    //you want full manual control over memory(High performance code)
+    return 0;
+}
+void myfunc(){
+    //code to be executed
+}
+//void means no return value
 
 
 int main() {
-    enums();
+    memmgmt();
     return 0;
 }
 
