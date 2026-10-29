@@ -391,14 +391,59 @@ int memmgmt(){
     //you want full manual control over memory(High performance code)
     return 0;
 }
-void myfunc(){
+void myfunc(string fname){
+    cout << fname << "Refsnes\n";
     //code to be executed
 }
+void functionprep(){
+    myfunc("Liam");
+    myfunc("Jenny");
+    myfunc("Anja");
+}
 //void means no return value
+void functionprep(int number = 3){
+    cout << number << "\n";
+    //default value
+    //can be switched by using reference and setting, changing ref value
+}
+//function overloading allows multiple functions to have same name, as long as parameters
+//different in type and number
+int plusfunc(int x, int y){
+    return x+y;
+}
+int plusfunc(double x, double y, double z){
+    return x + y + z;
+}
+void myFunction() {
+  // Local variable that belongs to myFunction
+  int x = 5;
 
+  // Print the variable x
+  cout << x;
+}
+//variable inside is in local scope and can only be used in func
+int x = 5;
+
+void myFunction2() {
+  // We can use x here
+  cout << x << "\n";
+}
+//x created outside func so global variable
+//global and local variables treated differently (priority for local in func)
+int sum(int k) {
+  if (k > 0) {
+    return k + sum(k - 1);
+  } else {
+    return 0;
+  }
+}
+//recursion is using function to call itself
 
 int main() {
-    memmgmt();
+    auto message = [](){
+        cout << "Hello World\n";
+    };
+    message();
     return 0;
 }
 
